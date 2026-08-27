@@ -1,0 +1,8 @@
+-- AlterTable
+ALTER TABLE "Score" ADD COLUMN     "userId" INTEGER;
+
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "expiredAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+-- AddForeignKey
+ALTER TABLE "Score" ADD CONSTRAINT "Score_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
